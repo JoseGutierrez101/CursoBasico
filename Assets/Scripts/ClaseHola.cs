@@ -4,9 +4,11 @@ using UnityEngine.InputSystem;
 public class ClaseHola : MonoBehaviour
 {
     [SerializeField] private int _playerSpeed;
+    private float _speedMult = 1f;
     [SerializeField] private float _smoothTime;
     private Vector2 _input;
     private PlayerInput _playerInput;
+
     private Vector2 _currentVelocity = Vector2.zero;
     private Vector2 _fixedInput;
 
@@ -30,7 +32,7 @@ public class ClaseHola : MonoBehaviour
     {
         ReadInput();
 
-        Debug.Log("Input: " + _input);
+        //Debug.Log("Input: " + _input);
 
         //transform.position += new Vector3(_input.x,_input.y,0) * Time.deltaTime * _playerSpeed; 
 
@@ -42,11 +44,16 @@ public class ClaseHola : MonoBehaviour
         //Vector2 target = new Vector2(transform.position.x, transform.position.y) + _input * _playerSpeed * Time.fixedDeltaTime
 
         _fixedInput = Vector2.SmoothDamp(_fixedInput, _input, ref _currentVelocity, _smoothTime);
-        _rigbody.MovePosition(_rigbody.position + _fixedInput * _playerSpeed * Time.fixedDeltaTime);
+        _rigbody.MovePosition(_rigbody.position + _fixedInput * _playerSpeed*_speedMult * Time.fixedDeltaTime);
     }
 
     private void ReadInput() {
         _input = _playerInput.actions["Move"].ReadValue<Vector2>();
-
+        //Debug.Log("test: " + _playerInput.actions["Speedup"].IsPressed());
+        if (_playerInput.actions["Speedup"].IsPressed()) {
+            _speedMult = 1.5f;
+        } else {
+            _speedMult = 1f;
+        }
     }
 }
