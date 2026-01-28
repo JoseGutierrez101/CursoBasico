@@ -3,19 +3,24 @@ using UnityEngine.InputSystem;
 
 public class ClaseHola : MonoBehaviour
 {
+    //BasicMove
+    [SerializeField] private float _smoothTime;
+    private Vector2 _fixedInput;
+    private Vector2 _input;
+
+    //Speeding
     [SerializeField] private int _playerSpeed;
     private float _speedMult = 1f;
-    [SerializeField] private float _smoothTime;
-    private Vector2 _input;
-    private PlayerInput _playerInput;
-
     private Vector2 _currentVelocity = Vector2.zero;
-    private Vector2 _fixedInput;
 
-    /*[Header("Jugador")]
-    [SerializeField] private int velocidad;
-
-    private Vector3 movim = new Vector3(1, 0, 0);*/
+    //Shooting
+    [SerializeField] private float _cooldown;
+    [SerializeField] private GameObject _bullet;
+    private float _shootTimer = 0;
+    private bool _shooting;
+    
+    //Components
+    private PlayerInput _playerInput;
     private Rigidbody2D _rigbody;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -31,17 +36,7 @@ public class ClaseHola : MonoBehaviour
     void FixedUpdate()
     {
         ReadInput();
-
-        //Debug.Log("Input: " + _input);
-
-        //transform.position += new Vector3(_input.x,_input.y,0) * Time.deltaTime * _playerSpeed; 
-
-        //_rigbody.linearVelocity = new Vector3(_input.x,_input.y,0) * _playerSpeed;
-
-        //_rigbody.MovePosition(new Vector2 (transform.position.x, transform.position.y) + _input * _playerSpeed * Time.fixedDeltaTime);
-
-        //_rigbody.AddForce(_input * _playerSpeed);
-        //Vector2 target = new Vector2(transform.position.x, transform.position.y) + _input * _playerSpeed * Time.fixedDeltaTime
+        Shoot();
 
         _fixedInput = Vector2.SmoothDamp(_fixedInput, _input, ref _currentVelocity, _smoothTime);
         _rigbody.MovePosition(_rigbody.position + _fixedInput * _playerSpeed*_speedMult * Time.fixedDeltaTime);
@@ -54,6 +49,17 @@ public class ClaseHola : MonoBehaviour
             _speedMult = 1.5f;
         } else {
             _speedMult = 1f;
+        }
+        _shooting = _playerInput.actions["Shoot"].IsPressed();
+    }
+    private void Shoot()
+    {
+        GameObject curBullet;
+        _shootTimer -= Time.fixedDeltaTime;
+        if (_shooting && (_shootTimer <= 0))
+        {
+            _shootTimer = _cooldown;
+            curBullet = Instantiate(_bullet, transform.position, Quaternion.identity);
         }
     }
 }
