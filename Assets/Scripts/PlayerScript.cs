@@ -22,6 +22,7 @@ public class ClaseHola : MonoBehaviour
     //Components
     private PlayerInput _playerInput;
     private Rigidbody2D _rigbody;
+    private Animator _animator;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -29,6 +30,7 @@ public class ClaseHola : MonoBehaviour
         Debug.Log("Start");
         _playerInput = GetComponent<PlayerInput>();
         _rigbody = GetComponent<Rigidbody2D>();
+        _animator = GetComponent<Animator>();
         //transform.Translate(new Vector3(10, 1));
     }
 
@@ -40,6 +42,7 @@ public class ClaseHola : MonoBehaviour
 
         _fixedInput = Vector2.SmoothDamp(_fixedInput, _input, ref _currentVelocity, _smoothTime);
         _rigbody.MovePosition(_rigbody.position + _fixedInput * _playerSpeed*_speedMult * Time.fixedDeltaTime);
+        _animator.SetFloat("InputX", _input.x);
     }
 
     private void ReadInput() {
