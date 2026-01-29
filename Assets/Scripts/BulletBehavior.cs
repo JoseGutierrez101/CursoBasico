@@ -9,8 +9,8 @@ public class BulletBehavior : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D other)
     {
-        //Debug.Log("Ive been touched by " + other.tag);
-        if (other.CompareTag("Enemy"))
+        //Debug.Log("test " + tag);
+        if (!other.CompareTag(tag))
         {
             Destroy(gameObject);
         }

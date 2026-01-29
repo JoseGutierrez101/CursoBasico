@@ -43,6 +43,8 @@ public class ClaseHola : MonoBehaviour
         _fixedInput = Vector2.SmoothDamp(_fixedInput, _input, ref _currentVelocity, _smoothTime);
         _rigbody.MovePosition(_rigbody.position + _fixedInput * _playerSpeed*_speedMult * Time.fixedDeltaTime);
         _animator.SetFloat("InputX", _input.x);
+
+        //Debug.Log("Screenwidth: " + Screen.width + "   ScreenHeight: " + Screen.height);
     }
 
     private void ReadInput() {
