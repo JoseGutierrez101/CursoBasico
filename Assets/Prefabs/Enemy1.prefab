@@ -142,6 +142,7 @@ MonoBehaviour:
   _enemyYSpeed: 0.5
   _enemyXSpeed: 10
   _bullet: {fileID: 3520840423962192029, guid: be0c7ae2357222247b02a7f3dc947e74, type: 3}
+  _enemyHP: 8
 --- !u!50 &2781197800286720413
 Rigidbody2D:
   serializedVersion: 5

@@ -12,6 +12,11 @@ public class BulletBehavior : MonoBehaviour
         //Debug.Log("test " + tag);
         if (!other.CompareTag(tag))
         {
+            //other.gameObject.TakeDamage();
+            if (other.tag == "Enemy")
+            {
+                other.SendMessage("TakeDamage", _damage);
+            }
             Destroy(gameObject);
         }
     }
