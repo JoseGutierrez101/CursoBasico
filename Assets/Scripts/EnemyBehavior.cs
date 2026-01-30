@@ -14,6 +14,8 @@ public class NewMonoBehaviourScript : MonoBehaviour
     private float _maxTimer = 1.5f;
     private float _chosenTimer;
 
+    [SerializeField] private float _enemyHP;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -60,5 +62,15 @@ public class NewMonoBehaviourScript : MonoBehaviour
     private void ChangeDestination()
     {
         _movingX = Random.Range(-_screenBounds.x + _enemyWidth, _screenBounds.x - _enemyWidth);
+    }
+
+    public void TakeDamage (float damage)
+    {
+        //Debug.Log("Ouch!" + damage);
+        _enemyHP -= damage;
+        if (_enemyHP <=0 )
+        {
+            Destroy(gameObject);
+        }
     }
 }

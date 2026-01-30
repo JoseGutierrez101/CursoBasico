@@ -24,7 +24,7 @@ public class SpawnerBehavior : MonoBehaviour
         if (_timer <= 0)
         {
             _timer = _spawnRate;
-
+            SpawnEnemy();
         }
     }
 
@@ -35,7 +35,7 @@ public class SpawnerBehavior : MonoBehaviour
     Vector3 GetRandomPos ()
     {
         Bounds bounds = _collider.bounds;
-        float chosenX = Random.Range(1,2);//pendiente
-        return new Vector3();
+        float chosenX = Random.Range(bounds.min.x, bounds.max.x);//pendiente
+        return new Vector3(chosenX , bounds.min.y, transform.position.z);
     }
 }

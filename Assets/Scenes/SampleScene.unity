@@ -232,9 +232,10 @@ GameObject:
   - component: {fileID: 292717451}
   - component: {fileID: 292717452}
   - component: {fileID: 292717453}
+  - component: {fileID: 292717454}
   m_Layer: 0
   m_Name: EnemySpawner
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -248,8 +249,8 @@ Transform:
   m_GameObject: {fileID: 292717448}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.5, y: 7.7, z: 0}
-  m_LocalScale: {x: 50, y: 5, z: 1}
+  m_LocalPosition: {x: 0.5, y: 9, z: 0}
+  m_LocalScale: {x: 25, y: 5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -382,6 +383,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
+--- !u!114 &292717454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 292717448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 408f1742c2f4038488ab35b670e90953, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spawnRate: 3
+  _enemy: {fileID: 8287349346489327522, guid: 4c5537927353c544080a83aeee8afd66, type: 3}
 --- !u!1 &438778712
 GameObject:
   m_ObjectHideFlags: 0
