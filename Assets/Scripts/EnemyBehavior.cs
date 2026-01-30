@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class NewMonoBehaviourScript : MonoBehaviour
@@ -10,15 +11,20 @@ public class NewMonoBehaviourScript : MonoBehaviour
     private Collider2D _collider;
 
     [SerializeField] private GameObject _bullet;
-    private float _minTimer = 0.5f;
-    private float _maxTimer = 1.5f;
+    [SerializeField]private float _minTimer;
+    [SerializeField]private float _maxTimer;
     private float _chosenTimer;
 
     [SerializeField] private float _enemyHP;
+    private SpriteRenderer _spriteRenderer;
+    private Color _color;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        _spriteRenderer = GetComponent<SpriteRenderer>();
+        _color = _spriteRenderer.color;
+
         _chosenTimer = Random.Range(_minTimer, _maxTimer);
 
         Vector3 screenValues = new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z);
@@ -59,6 +65,14 @@ public class NewMonoBehaviourScript : MonoBehaviour
         }
     }
 
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        //Debug.Log("bwow " + collision.tag);
+        if (collision.CompareTag("Destroyer"))
+        {
+            Destroy(gameObject);
+        }
+    }
     private void ChangeDestination()
     {
         _movingX = Random.Range(-_screenBounds.x + _enemyWidth, _screenBounds.x - _enemyWidth);
@@ -68,9 +82,21 @@ public class NewMonoBehaviourScript : MonoBehaviour
     {
         //Debug.Log("Ouch!" + damage);
         _enemyHP -= damage;
+
+        StartCoroutine(FlashRed());
+
         if (_enemyHP <=0 )
         {
             Destroy(gameObject);
         }
+    }
+
+    private IEnumerator FlashRed ()
+    {
+        _spriteRenderer.color = Color.red;
+
+        yield return new WaitForSeconds(0.1f);
+
+        _spriteRenderer.color = _color;
     }
 }

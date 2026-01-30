@@ -139,10 +139,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 737af73554616ff458b12aee52eb40a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enemyYSpeed: 0.5
-  _enemyXSpeed: 10
+  _enemyYSpeed: 1
+  _enemyXSpeed: 5
   _bullet: {fileID: 3520840423962192029, guid: be0c7ae2357222247b02a7f3dc947e74, type: 3}
-  _enemyHP: 8
+  _minTimer: 1
+  _maxTimer: 1.5
+  _enemyHP: 15
 --- !u!50 &2781197800286720413
 Rigidbody2D:
   serializedVersion: 5
