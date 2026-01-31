@@ -3,10 +3,15 @@ using UnityEngine;
 public class SpawnerBehavior : MonoBehaviour
 {
     [SerializeField] private float _spawnRate;
-    [SerializeField] private GameObject _enemy;
+    [SerializeField] private GameObject _enemyEasy;
+    [SerializeField] private GameObject _enemyMedium;
+    [SerializeField] private GameObject _enemyMedium2;
+    [SerializeField] private GameObject _enemyHard;
     private float _chosenX;
     private float _timer;
     private Collider2D _collider;
+    private GameObject _enemy;
+    
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -24,12 +29,31 @@ public class SpawnerBehavior : MonoBehaviour
         if (_timer <= 0)
         {
             _timer = _spawnRate;
-            SpawnEnemy();
+            SpawnEnemy(Mathf.FloorToInt(Random.Range(1f, 6.1f)));
+            if (!(_spawnRate < 0.7)) _spawnRate *= 0.99f;
+            Debug.Log("SpawnRate: " + _spawnRate);
         }
     }
 
-    void SpawnEnemy ()
+    void SpawnEnemy (int chosenEnemy)
     {
+        switch (chosenEnemy)
+        {
+            default:
+            _enemy = _enemyEasy;
+            break;
+            case 2:
+            case 4:
+            _enemy = _enemyMedium;
+            break;
+            case 3:
+            _enemy = _enemyMedium2;
+            break;
+            case 6:
+            _enemy = _enemyHard;
+            break;
+        }
+
         Instantiate(_enemy, GetRandomPos(), Quaternion.identity);
     }
     Vector3 GetRandomPos ()

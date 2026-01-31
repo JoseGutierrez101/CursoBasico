@@ -79,7 +79,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -6012323739642740125, guid: 3a4e352127fd5b34caba4519cd6fe2fa, type: 3}
+  m_Sprite: {fileID: -4681459669148262150, guid: 06e59df123dcd294483ab0a46476de60, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -120,7 +120,7 @@ CapsuleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -144,7 +144,7 @@ MonoBehaviour:
   _bullet: {fileID: 3520840423962192029, guid: be0c7ae2357222247b02a7f3dc947e74, type: 3}
   _minTimer: 1
   _maxTimer: 1.5
-  _enemyHP: 15
+  _enemyHP: 40
 --- !u!50 &2781197800286720413
 Rigidbody2D:
   serializedVersion: 5

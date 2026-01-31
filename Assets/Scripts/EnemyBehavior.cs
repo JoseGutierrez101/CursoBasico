@@ -72,6 +72,11 @@ public class NewMonoBehaviourScript : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        if (collision.CompareTag("Player") && collision.TryGetComponent<ClaseHola>(out ClaseHola player))
+        {
+            player.TakeDamage(_enemyHP);
+            Destroy(gameObject);
+        }
     }
     private void ChangeDestination()
     {
@@ -87,6 +92,8 @@ public class NewMonoBehaviourScript : MonoBehaviour
 
         if (_enemyHP <=0 )
         {
+            GameObject.Find("Canvas").GetComponent<GameUIBehavior>().EnemyKilled();
+            GameObject.Find("Player").GetComponent<ClaseHola>().EnemyKilled();
             Destroy(gameObject);
         }
     }

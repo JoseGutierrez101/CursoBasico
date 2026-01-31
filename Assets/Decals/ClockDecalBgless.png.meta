@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 70540cc7be0a156418fd84cc2f73d8d0
+guid: 7cc06c1e64ad485429aea40ce77ce398
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5513637760071312051
-    second: player_r_m_0
+      213: -5541484013708897847
+    second: ClockDecalBgless_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -75,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: player_r_m_0
+      name: ClockDecalBgless_0
       rect:
         serializedVersion: 2
-        x: 7
-        y: 6
-        width: 50
-        height: 52
+        x: 13
+        y: 10
+        width: 105
+        height: 105
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d4dd4c27baf9b73b0800000000000000
-      internalID: -5513637760071312051
+      spriteID: 9c1106a46a1b813b0800000000000000
+      internalID: -5541484013708897847
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      player_r_m_0: -5513637760071312051
+      ClockDecalBgless_0: -5541484013708897847
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

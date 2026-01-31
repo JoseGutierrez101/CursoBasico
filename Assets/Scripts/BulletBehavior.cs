@@ -13,10 +13,11 @@ public class BulletBehavior : MonoBehaviour
         if (!other.CompareTag(tag))
         {
             //other.gameObject.TakeDamage();
-            if (other.tag == "Enemy")
+            if ((other.tag == "Enemy") || (other.tag == "Player"))
             {
                 other.SendMessage("TakeDamage", _damage);
             }
+            
             Destroy(gameObject);
         }
     }
