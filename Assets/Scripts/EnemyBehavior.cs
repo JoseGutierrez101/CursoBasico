@@ -16,6 +16,7 @@ public class NewMonoBehaviourScript : MonoBehaviour
     private float _chosenTimer;
 
     [SerializeField] private float _enemyHP;
+    [SerializeField] private GameObject _deathFX;
     private SpriteRenderer _spriteRenderer;
     private Color _color;
 
@@ -75,6 +76,8 @@ public class NewMonoBehaviourScript : MonoBehaviour
         if (collision.CompareTag("Player") && collision.TryGetComponent<ClaseHola>(out ClaseHola player))
         {
             player.TakeDamage(_enemyHP);
+            GameObject.Find("Canvas").GetComponent<GameUIBehavior>().EnemyKilled();
+            Instantiate(_deathFX, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
     }
@@ -94,6 +97,7 @@ public class NewMonoBehaviourScript : MonoBehaviour
         {
             GameObject.Find("Canvas").GetComponent<GameUIBehavior>().EnemyKilled();
             GameObject.Find("Player").GetComponent<ClaseHola>().EnemyKilled();
+            Instantiate(_deathFX, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
     }

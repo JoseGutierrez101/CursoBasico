@@ -25,6 +25,7 @@ public class ClaseHola : MonoBehaviour
     private bool _shooting;
 
     //Damage
+    [SerializeField] private GameObject _deathFX;
     [SerializeField] private float _health;
     private float _maxHealth;
     //private RectTransform _hpRectTransform;
@@ -111,6 +112,7 @@ public class ClaseHola : MonoBehaviour
         if (_health <= 0)
         {
             GameObject.Find("Canvas").GetComponent<GameUIBehavior>().PlayerKilled();
+            Instantiate(_deathFX, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
     }

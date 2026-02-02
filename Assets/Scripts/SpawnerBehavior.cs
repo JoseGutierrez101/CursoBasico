@@ -29,8 +29,8 @@ public class SpawnerBehavior : MonoBehaviour
         if (_timer <= 0)
         {
             _timer = _spawnRate;
-            SpawnEnemy(Mathf.FloorToInt(Random.Range(1f, 6.1f)));
-            if (!(_spawnRate < 0.7)) _spawnRate *= 0.99f;
+            SpawnEnemy(Mathf.FloorToInt(Random.Range(1f, 6.15f)));
+            if (!(_spawnRate < 0.5)) _spawnRate *= 0.99f;
             Debug.Log("SpawnRate: " + _spawnRate);
         }
     }

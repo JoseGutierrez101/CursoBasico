@@ -124,8 +124,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.0027304888, y: 0.0022202134}
-  m_Size: {x: 0.3258736, y: 0.49563134}
+  m_Offset: {x: -0.004586935, y: 0.0022202134}
+  m_Size: {x: 0.39904803, y: 0.49563134}
   m_Direction: 0
 --- !u!114 &6745745624396656667
 MonoBehaviour:
@@ -145,6 +145,7 @@ MonoBehaviour:
   _minTimer: 0.2
   _maxTimer: 0.5
   _enemyHP: 50
+  _deathFX: {fileID: 6793865186946884009, guid: 918aef32307b2f14d8838c06954095a6, type: 3}
 --- !u!50 &3700181144863997145
 Rigidbody2D:
   serializedVersion: 5

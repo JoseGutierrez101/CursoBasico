@@ -145,6 +145,7 @@ MonoBehaviour:
   _minTimer: 0.1
   _maxTimer: 0.2
   _enemyHP: 30
+  _deathFX: {fileID: 6793865186946884009, guid: 918aef32307b2f14d8838c06954095a6, type: 3}
 --- !u!50 &752511760297865568
 Rigidbody2D:
   serializedVersion: 5
